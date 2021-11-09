@@ -1,6 +1,6 @@
-### Appium Basics Repo
+# Appium Basics Repo
 
-### Appium installation
+## Appium installation
 - JDK 1.8 must be installed;
 - Nodejs 
 - Appium GUI
@@ -17,12 +17,12 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
-#### Check of Appium installation
+### Check of Appium installation
 To verify appium installation, `appium-doctor` is used. Installed via npm. See for detailed info:
 https://github.com/appium/appium-doctor
 
 Just simply run `appium-doctor` in cmd and verify output.
-#### Install Appium via npm
+### Install Appium via npm
 `npm install -g appium`
 
 Usually appium from npm is installed with *separated installed* chromedriver.
@@ -43,7 +43,7 @@ You can start appium like(in example port is specified):
 
 ```appium -p 4274```
 
-### Connect real device
+## Connect real device
 - Enable developer mode. 
 - Allow debugging on USB connection. 
 - Connect to computer and select `Transfer files`
@@ -55,7 +55,7 @@ List of devices attached
 - Start Appium Server
 - Run your tests
 
-#### Error, when device is unauthorized
+### Error, when device is unauthorized
 If you see the following:
 ```➜  ~ adb devices
 List of devices attached
@@ -67,7 +67,7 @@ List of devices attached
 4. Run `adb start-server`
 
 
-### Debug Mobile Chrome On Computer  
+## Debug Mobile Chrome On Computer  
 *NB*: for tests in Chrome chromedriver is required.
 
 How to open app in chrome devtools:
@@ -76,14 +76,14 @@ How to open app in chrome devtools:
 
 Then find connected device and click on `Inspect`
 
-### Running emulator
+## Running emulator
 You need to create emulator in Android Studio, ideally with PlayMarket by default 
 
 ```
 /Users/$(whoami)/Library/Android/sdk/emulator/emulator -avd  Pixel_2_API_30 -netdelay none -netspeed full -dns-server 8.8.8.8 -verbose
 ```
 
-#### Possible Problems (Mac OS issues)
+### Possible Problems (Mac OS issues)
 
 - if there's no internet connection - create DNS in WI-FI Sections with ip 8.8.8.8
 For more info see: https://stackoverflow.com/questions/44535500/internet-stopped-working-on-android-emulator-mac-os
