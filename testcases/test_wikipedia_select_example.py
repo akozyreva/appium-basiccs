@@ -7,6 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from variables import desired_caps_real_device
 
+# NB - real device is needed!
 driver = webdriver.Remote(command_executor="http://127.0.0.1:4723/wd/hub",
                           desired_capabilities=desired_caps_real_device)
 driver.get("https://wikipedia.org")

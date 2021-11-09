@@ -43,6 +43,15 @@ You can start appium like(in example port is specified):
 
 ```appium -p 4274```
 
+### Start Appium
+- Via Appium Server Gui - need only click btn "Start Server...";
+- Via npm - see section above;
+- Programmatically - see `test_appium_starts_itself.py` for details
+
+### Stop Appium
+`lsof -P | grep ':<port-num>' | awk '{print $2}' | xargs kill -9`
+
+
 ## Connect real device
 - Enable developer mode. 
 - Allow debugging on USB connection. 
