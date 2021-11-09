@@ -1,7 +1,7 @@
 # Appium Basics Repo
 
 ## Appium installation
-- JDK 1.8 must be installed;
+- JDK 1.8 must be installed ( 1.8.0_251 works fine);
 - Nodejs 
 - Appium GUI
 - Android Studio (install sdk package)
@@ -14,6 +14,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 export ANDROID_HOME=/Users/$(whoami)/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
@@ -100,3 +101,51 @@ For more info see: https://stackoverflow.com/questions/44535500/internet-stopped
 https://github.com/intel/haxm
 - increase memory, try different Boost options (quick/slow)
 - run device from cmd, not from Android Studio
+
+### Test native App
+- connect real device;
+- launch desired apk;
+- run `adb shell`;
+- in shell run `dumpsys window windows | grep -E 'mCurrentFocus'`
+or `dumpsys window windows | grep -E 'mTopActivityComponent` 
+- From output:
+```  
+mCurrentFocus=Window{99846e8 u0 com.android.contacts/com.android.contacts.activities.DialtactsActivity}
+```
+before slash is package name and after slash is package activity. Add them in desired_caps instead of browser:
+```
+    desired_caps = dict(
+    deviceName='Android',
+    platformName='Android',
+    appPackage='com.android.contacts',
+    appActivity='com.android.contacts.activities.DialtactsActivity'
+)
+```
+### Run Appium Inspector
+To get locators, XPaths, etc. 
+#### Installation
+https://github.com/appium/appium-inspector/
+#### Running
+1. Start Appium Server
+2. Connect Device
+3. Open App for debug
+4. Open Appium Inspector
+5. In Appium Inspector add Capabilities, like:
+```
+{
+  "appium:deviceName": "Android",
+  "platformName": "Android",
+  "appium:appPackage": "com.android.contacts",
+  "appium:appActivity": "com.android.contacts.activities.DialtactsActivity"
+}
+```
+6. Add Remote Path value `/wd/hub`
+7. Start the Session
+
+### uiautomatorviewer
+- Open app, which locators are needed.
+- Run in terminal:
+```uiautomatorviewer```
+- Make snapshot 
+- If no errors occurred, you see app with locators
+- If it doesn't work, verify JDK version
