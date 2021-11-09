@@ -22,6 +22,26 @@ To verify appium installation, `appium-doctor` is used. Installed via npm. See f
 https://github.com/appium/appium-doctor
 
 Just simply run `appium-doctor` in cmd and verify output.
+#### Install Appium via npm
+`npm install -g appium`
+
+Usually appium from npm is installed with *separated installed* chromedriver.
+To ge the latest one, run:
+
+`npm install -g appium --chromedriver_version="<desired_version_num>"`
+
+Or you can simply specify to download chromedirver automatically:
+
+```appium --allow-insecure chromedriver_autodownload```
+
+All chromedrivers of appium npm will be found:
+
+```/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/chromedriver/mac```
+
+After that appium will be available via command line.
+You can start appium like(in example port is specified):
+
+```appium -p 4274```
 
 ### Connect real device
 - Enable developer mode. 
