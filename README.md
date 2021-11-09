@@ -17,6 +17,12 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
+#### Check of Appium installation
+To verify appium installation, `appium-doctor` is used. Installed via npm. See for detailed info:
+https://github.com/appium/appium-doctor
+
+Just simply run `appium-doctor` in cmd and verify output.
+
 ### Connect real device
 - Enable developer mode. 
 - Allow debugging on USB connection. 
