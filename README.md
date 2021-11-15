@@ -9,7 +9,7 @@
 Put the following content in `.zprofile`
 
 ```
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_311)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_251)
 export PATH=$PATH:$JAVA_HOME/bin
 
 export ANDROID_HOME=/Users/$(whoami)/Library/Android/sdk
@@ -89,6 +89,11 @@ Then find connected device and click on `Inspect`
 ## Running emulator
 You need to create emulator in Android Studio, ideally with PlayMarket by default 
 
+To get emulator name, please run:
+```
+emulator -list-avds
+```
+After that you need to run the following:
 ```
 /Users/$(whoami)/Library/Android/sdk/emulator/emulator -avd  Pixel_2_API_30 -netdelay none -netspeed full -dns-server 8.8.8.8 -verbose
 ```
@@ -149,3 +154,25 @@ https://github.com/appium/appium-inspector/
 - Make snapshot 
 - If no errors occurred, you see app with locators
 - If it doesn't work, verify JDK version
+
+### APK installation on device
+``` 
+adb -s  <device_id> install <path_to_apk_file>
+```
+To uninstall package
+```
+adb uninstall <package_name>
+```
+package_name can be found via `dumpsys` command (see above)
+
+#### How to pull APK from device
+```
+adb shell pm list packages
+```
+Then run to get package path on device
+```adb shell pm path <package-name>```
+
+Finally, pull apk:
+```
+adb pull <path-to-apk-on-device> <path-local-to-save>
+```
