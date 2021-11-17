@@ -2,6 +2,8 @@ import time
 
 from appium import webdriver
 
+from utilities.scroll_util import ScrollUtil
+
 """
 It creates notes and shows possibilities of UIAutomator class
 """
@@ -64,7 +66,20 @@ driver.swipe(229, 1823, 229, 1377, 1000)
 driver.swipe(229, 1823, 229, 1377, 1000)
 
 # swipe up
-driver.swipe(229, 1377, 229, 1823, 1000)
-driver.swipe(229, 1377, 229, 1823, 1000)
-driver.swipe(229, 1377, 229, 1823, 1000)
-driver.swipe(229, 1377, 229, 1823, 1000)
+ScrollUtil.swipe_up(4, driver)
+
+# get 1 note above and get coordinates of it, then swipe from right to left and remove it.
+coordinates = driver.find_element_by_android_uiautomator('new UiSelector().text("Test Note 3")').location
+driver.swipe(859, 652, coordinates['x'], coordinates['y'])
+# and then agree to remove
+time.sleep(1)
+popup_msg = driver.find_element_by_id("android:id/message").text
+assert popup_msg == "Remove?"
+driver.find_element_by_id("android:id/button1").click()
+
+# window size
+handle_one_size = driver.get_window_size()
+handle_two_size = driver.get_window_size("handleName")
+print(handle_one_size)
+print(handle_two_size)
+
