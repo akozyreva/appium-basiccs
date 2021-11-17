@@ -54,3 +54,17 @@ driver.find_element_by_accessibility_id("Navigate up").click()
 driver.find_element_by_android_uiautomator\
     ('new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains("Note 0").instance(0))').click()
 driver.find_element_by_accessibility_id("Navigate up").click()
+
+# gestures
+# swipe down -4 times to see, that it really scrolling
+time.sleep(2)
+driver.swipe(229, 1823, 229, 1377, 1000)
+driver.swipe(229, 1823, 229, 1377, 1000)
+driver.swipe(229, 1823, 229, 1377, 1000)
+driver.swipe(229, 1823, 229, 1377, 1000)
+
+# swipe up
+driver.swipe(229, 1377, 229, 1823, 1000)
+driver.swipe(229, 1377, 229, 1823, 1000)
+driver.swipe(229, 1377, 229, 1823, 1000)
+driver.swipe(229, 1377, 229, 1823, 1000)
