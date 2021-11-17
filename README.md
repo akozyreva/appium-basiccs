@@ -112,7 +112,7 @@ https://github.com/intel/haxm
 - launch desired apk;
 - run `adb shell`;
 - in shell run `dumpsys window windows | grep -E 'mCurrentFocus'`
-or `dumpsys window windows | grep -E 'mTopActivityComponent` 
+or `dumpsys window windows | grep -E 'mTopActivityComponent'` 
 - From output:
 ```  
 mCurrentFocus=Window{99846e8 u0 com.android.contacts/com.android.contacts.activities.DialtactsActivity}
