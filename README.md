@@ -187,3 +187,13 @@ Finally, pull apk:
 ```
 adb pull <path-to-apk-on-device> <path-local-to-save>
 ```
+
+## Pytest integration
+
+### Pycharm configuration
+
+![Screenshot](pytest_integration/screenshots/pycharm_conf_example.png)
+
+Please also verify, that PyCharm detected `pytest` as testing framework:
+
+![Screenshot](pytest_integration/screenshots/pycharm_tools_example.png)
