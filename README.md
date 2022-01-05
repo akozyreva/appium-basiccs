@@ -197,3 +197,28 @@ adb pull <path-to-apk-on-device> <path-local-to-save>
 Please also verify, that PyCharm detected `pytest` as testing framework:
 
 ![Screenshot](pytest_integration/screenshots/pycharm_tools_example.png)
+
+Running tests by word in test function name:
+
+```
+pytest -s -k email
+```
+
+Running tests by word in test function, *excluding* name:
+
+```
+pytest -s -k "not login"
+```
+
+Running 'marked' tests (e.g. `@pytest.mark.functional`):
+
+```
+pytest -s -m "functional"
+```
+
+Running not 'marked' tests (e.g. not `@pytest.mark.functional`):
+
+```
+pytest -s -m "not functional"
+```
+
