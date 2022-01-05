@@ -126,6 +126,17 @@ before slash is package name and after slash is package activity. Add them in de
     appActivity='com.android.contacts.activities.DialtactsActivity'
 )
 ```
+
+Specific capabilities: reset. If `noReset`, data after finishing test will be saved. 
+If `fullReset`, then app with data will be deleted completely before session and after test:
+
+```
+{
+    "fullReset": True,
+    "noReset": True,
+}
+```
+
 ### Run Appium Inspector
 To get locators, XPaths, etc. 
 #### Installation
