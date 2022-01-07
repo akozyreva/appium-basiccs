@@ -222,3 +222,8 @@ Running not 'marked' tests (e.g. not `@pytest.mark.functional`):
 pytest -s -m "not functional"
 ```
 
+Running with generation `allure` report:
+
+```
+ pytest <test_file_name> --alluredir=./allure_reports
+```
