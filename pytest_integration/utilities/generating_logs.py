@@ -13,5 +13,6 @@ def log():
     print("I'm inside")
     return logger
 
+# example doesn't work with test_appium_allure_screen_on_failure.py
 logger = log()
 logger.info("12324")
